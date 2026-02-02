@@ -1,0 +1,42 @@
+pipeline {
+    agent none
+
+    stages {
+
+        stage('Dev Build on Dev agent') {
+            agent { label 'Dev' }
+            steps {
+                git url: 'https://github.com/avinashkumar-DevOps/jenkins', branch: 'main'
+                bat '''
+                    dir
+                    javac DevBuild.java
+                    java DevBuild
+                '''
+            }
+        }
+
+        stage('Test Build on test') {
+            agent { label 'Test' }
+            steps {
+                git url: 'https://github.com/avinashkumar-DevOps/jenkins', branch: 'main'
+                bat '''
+                    dir
+                    javac TestBuild.java
+                    java TestBuild
+                '''
+            }
+        }
+
+        stage('Performance Build on perfomance agent') {
+            agent { label 'performance' }
+            steps {
+                git url: 'https://github.com/avinashkumar-DevOps/jenkins', branch: 'main'
+                bat '''
+                    dir
+                    javac PerformanceBuild.java
+                    java PerformanceBuild
+                '''
+            }
+        }
+    }
+}
