@@ -1,0 +1,26 @@
+
+Jenkins Master Slave configuraiton --
+Create VMs 
+1. Master-Jenkins-VM , OS Ubuntu (GCP)
+2. slave-jekins-VM, OS Ubuntu (GCP)
+3. slave-jenkins-vm os windows server on AWS
+
+Install Jenkins and configure on Master-Jenskins-VM
+
+sudo apt update && sudo apt install openjdk-17-jdk -y
+
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc   https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]"   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt update
+sudo apt install -y jenkins
+systemctl status jenkins
+-- Condifugure Jenkins
+ The first Jenkins agent is configured on a Windows Server 2025 VM in AWS, with the workspace located at:
+C:\jenkins\developer
+Install Java on Windows Server.
+
+2slave-jekins-VM, OS Ubuntu (GCP)
+6. The second Jenkins agent is configured on a VM running Ubuntu 24.04 LTS in GCP, with the workspace located at:
+/var/jenkins/performance
+Install Java on sever
