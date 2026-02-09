@@ -1,5 +1,5 @@
-
-Jenkins Master Slave configuraiton --
+--:: Jenkins Master Slave configuraiton ::--
+-------------------------------------------------------
 Create VMs 
 1. Master-Jenkins-VM , OS Ubuntu (GCP)
 2. slave-jekins-VM, OS Ubuntu (GCP)
